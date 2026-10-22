@@ -1,0 +1,22 @@
+# Glossary
+
+- **UserOperation:** the ERC-4337 pseudo-transaction submitted to bundlers.
+- **PackedUserOperation:** the EntryPoint v0.7+ encoding of a UserOperation, with gas limits and fees packed into `bytes32` fields.
+- **EntryPoint:** singleton contract that validates and executes UserOperations.
+- **Bundler:** node that packages UserOperations into a transaction.
+- **Beneficiary:** the address, chosen by the bundler, that receives gas payments for a bundle.
+- **Paymaster:** contract that pays gas for UserOperations.
+- **validationData:** the packed return value of validation: aggregator or failure flag, `validUntil`, `validAfter`.
+- **Unused-gas penalty:** EntryPoint v0.7+ charge on execution gas reserved but not used, discouraging inflated limits.
+- **2D nonce:** ERC-4337 nonce split into a 192-bit key and a 64-bit sequence.
+- **Counterfactual account:** a smart account whose `CREATE2` address is known and can hold funds before its code is deployed.
+- **Authorisation tuple:** EIP-7702 signed delegation `(chain_id, address, nonce, signature)`.
+- **Delegation designator:** the 23-byte code `0xef0100 || address` that EIP-7702 writes to a delegating EOA.
+- **Delegate:** the contract whose code an EIP-7702 EOA runs.
+- **Namespaced storage:** ERC-7201 layout placing a contract's state at a hash-derived slot to avoid collisions.
+- **Module:** a plugin for a modular account (validator, executor, hook, fallback).
+- **Executor:** a module allowed to make the account execute calls outside the EntryPoint path.
+- **Fallback handler:** a module that answers calls to selectors the account core does not implement.
+- **Session key:** a temporary, scoped signing key.
+- **Mass invalidation:** a DoS where many pending operations become invalid at once.
+- **Mutation test (signed fields):** a test that changes one signed field at a time and expects signature verification to fail.

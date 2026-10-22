@@ -1,0 +1,7 @@
+[book]
+title = "Account Abstraction Security"
+language = "en"
+src = "."
+
+[output.html]
+git-repository-url = "https://github.com/<you>/account-abstraction-security"
